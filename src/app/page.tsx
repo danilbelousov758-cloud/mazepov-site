@@ -12,30 +12,47 @@ export default function Home() {
 >
 
 
-{/* ФОН */}
+{/* VIDEO BACKGROUND */}
+
+<video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="
+  absolute
+  inset-0
+  w-full
+  h-full
+  object-cover
+  -z-20
+  "
+>
+  <source src="/videos/background.mp4" type="video/mp4" />
+</video>
+
+
+{/* Затемнение видео */}
 
 <div
   className="
   absolute
   inset-0
-  -z-20
-  bg-[radial-gradient(circle_at_top,#351044,transparent_45%)]
-  "
+  bg-black/60
+  -z-10
+"
 />
 
+
+{/* Фиолетовое свечение */}
 
 <div
   className="
   absolute
-  right-[-200px]
-  bottom-[-200px]
-  w-[600px]
-  h-[600px]
-  bg-purple-600/20
-  rounded-full
-  blur-[180px]
-  -z-20
-  "
+  inset-0
+  bg-[radial-gradient(circle_at_top,#35104455,transparent_50%)]
+  -z-10
+"
 />
 
 
