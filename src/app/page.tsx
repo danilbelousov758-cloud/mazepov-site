@@ -25,34 +25,38 @@ export default function Home() {
   w-full
   h-full
   object-cover
-  -z-20
+  opacity-10
+  z-0
   "
 >
-  <source src="/videos/background.mp4" type="video/mp4" />
+  <source 
+    src="/videos/background.mp4"
+    type="video/mp4"
+  />
 </video>
 
 
-{/* Затемнение видео */}
+{/* DARK OVERLAY */}
 
 <div
   className="
   absolute
   inset-0
-  bg-black/60
-  -z-10
-"
+  bg-black/40
+  z-10
+  "
 />
 
 
-{/* Фиолетовое свечение */}
+{/* PURPLE GLOW */}
 
 <div
   className="
   absolute
   inset-0
   bg-[radial-gradient(circle_at_top,#35104455,transparent_50%)]
-  -z-10
-"
+  z-10
+  "
 />
 
 
@@ -278,6 +282,8 @@ font-semibold
 
 <section
 className="
+relative
+z-20
 pt-24
 h-[calc(100vh-96px)]
 max-w-7xl
