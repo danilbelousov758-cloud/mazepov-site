@@ -15,21 +15,21 @@ export default function Home() {
 {/* VIDEO BACKGROUND */}
 
 <video
-autoPlay
-loop
-muted
-playsInline
-className="
-absolute
-inset-0
-w-full
-h-full
-object-cover
-opacity-30
-z-0
-"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="
+  absolute
+  inset-0
+  w-full
+  h-full
+  object-cover
+  opacity-3git add .0git add .
+  z-0
+  "
 >
-  <source
+  <source 
     src="/videos/background.mp4"
     type="video/mp4"
   />
@@ -42,7 +42,7 @@ z-0
   className="
   absolute
   inset-0
-  bg-black/50
+  bg-black/40
   z-10
   "
 />
@@ -427,71 +427,71 @@ text-zinc-400
 
 {/* FOOTER */}
 
+
 <footer
-  className="
-  fixed
-  bottom-0
-  left-0
-  w-full
-  h-10
-  flex
-  items-center
-  justify-center
-  gap-6
-  bg-black/40
-  backdrop-blur-md
-  border-t
-  border-white/10
-  z-50
-  text-xs
-  "
+className="
+fixed
+bottom-0
+left-0
+w-full
+h-10
+flex
+items-center
+justify-center
+gap-10
+bg-black/60
+backdrop-blur-md
+border-t
+border-white/5
+text-[11px]
+font-medium
+tracking-wide
+"
 >
-
-<a
-  href="https://t.me/mazepovvv"
-  target="_blank"
-  className="
-  text-white
-  transition-all
-  duration-300
-  hover:text-transparent
-  hover:bg-gradient-to-r
-  hover:from-purple-400
-  hover:to-pink-400
-  hover:bg-clip-text
-  "
->
-  TG - MAZEPOV
-</a>
 
 
 <a
-  href="https://t.me/ConnextionSqaude"
-  target="_blank"
-  className="
-  text-white
-  transition-all
-  duration-300
-  hover:text-transparent
-  hover:bg-gradient-to-r
-  hover:from-purple-400
-  hover:to-pink-400
-  hover:bg-clip-text
-  "
+href="https://t.me/mazepovvv"
+target="_blank"
+className="
+text-white
+transition-all
+duration-300
+hover:text-transparent
+hover:bg-gradient-to-r
+hover:from-purple-400
+hover:to-pink-400
+hover:bg-clip-text
+"
 >
-  TG - CONNEXTION
+TG - MAZEPOV
 </a>
 
-</footer>
+
+
+<a
+href="https://t.me/ConnextionSqaude"
+target="_blank"
+className="
+text-white
+transition-all
+duration-300
+hover:text-transparent
+hover:bg-gradient-to-r
+hover:from-purple-400
+hover:to-pink-400
+hover:bg-clip-text
+"
+>
+TG - CONNEXTION
+</a>
+
 
 </footer>
 
 
-</footer>
 
-
-
-</main> 
+</main>
 
   );
 }
