@@ -25,7 +25,7 @@ export default function Home() {
   w-full
   h-full
   object-cover
-  opacity-10
+  opacity-30git add .
   z-0
   "
 >
