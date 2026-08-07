@@ -1,497 +1,273 @@
 export default function Home() {
   return (
 
-<main
-  className="
-  h-screen
-  overflow-hidden
-  bg-[#050505]
-  text-white
-  relative
-  "
->
-
-
-{/* VIDEO BACKGROUND */}
-
-<video
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="
-  absolute
-  inset-0
-  w-full
-  h-full
-  object-cover
-  opacity-30
-  z-0
-  "
->
-  <source
-    src="/videos/background.mp4"
-    type="video/mp4"
-  />
-</video>
-
-
-{/* DARK OVERLAY */}
-
-<div
-  className="
-  absolute
-  inset-0
-  bg-black/50
-  z-10
-  "
-/>
-
-
-{/* PURPLE GLOW */}
-
-<div
-  className="
-  absolute
-  inset-0
-  bg-[radial-gradient(circle_at_top,#35104455,transparent_50%)]
-  z-10
-  "
-/>
-
-
-
-{/* КУБИКИ ФОНА */}
-
-
-<div
-className="
-absolute
-inset-0
-overflow-hidden
--z-10
-"
->
-
-
-<div
-className="
-absolute
-top-[15%]
-left-[8%]
-w-24
-h-24
-border
-border-purple-400/20
-bg-purple-500/5
-backdrop-blur-sm
-rotate-12
-animate-[float_8s_ease-in-out_infinite]
-"
-/>
-
-
-<div
-className="
-absolute
-top-[25%]
-right-[12%]
-w-32
-h-32
-border
-border-pink-400/20
-bg-pink-500/5
-backdrop-blur-sm
-rotate-45
-animate-[float_10s_ease-in-out_infinite]
-"
-/>
+    <main
+      className="
+      h-screen
+      overflow-hidden
+      bg-[#050505]
+      text-white
+      relative
+      "
+    >
+
+      {/* VIDEO BACKGROUND */}
+
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="
+        absolute
+        inset-0
+        w-full
+        h-full
+        object-cover
+        opacity-30
+        z-0
+        "
+      >
+        <source
+          src="/videos/background.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+
+
+      {/* DARK OVERLAY */}
+
+      <div
+        className="
+        absolute
+        inset-0
+        bg-black/50
+        z-10
+        "
+      />
+
+
+
+      {/* PURPLE GLOW */}
+
+      <div
+        className="
+        absolute
+        inset-0
+        bg-[radial-gradient(circle_at_top,#35104455,transparent_50%)]
+        z-10
+        "
+      />
+
+
+
+      {/* КУБИКИ ФОНА */}
 
 
-<div
-className="
-absolute
-bottom-[20%]
-left-[35%]
-w-20
-h-20
-border
-border-purple-400/20
-bg-purple-500/5
-rotate-45
-animate-[float_7s_ease-in-out_infinite]
-"
-/>
 
 
-</div>
 
+      {/* HEADER */}
 
+      <header
+        className="
+        fixed
+        top-5
+        left-1/2
+        -translate-x-1/2
+        w-[92%]
+        max-w-7xl
+        h-16
+        px-6
+        rounded-2xl
+        bg-black/70
+        border
+        border-white/10
+        backdrop-blur-xl
+        flex
+        items-center
+        justify-between
+        z-50
+        "
+      >
 
 
+        <nav
+          className="
+          flex
+          gap-8
+          text-sm
+          text-zinc-400
+          "
+        >
 
 
-{/* HEADER */}
+          <a
+            href="/"
+            className="
+            hover:text-white
+            transition
+            "
+          >
+            Главная
+          </a>
 
 
-<header
-className="
-fixed
-top-5
-left-1/2
--translate-x-1/2
-w-[92%]
-max-w-7xl
-h-16
-px-6
-rounded-2xl
-bg-black/70
-border
-border-white/10
-backdrop-blur-xl
-flex
-items-center
-justify-between
-z-50
-"
->
 
+          <a
+            href="/mods"
+            className="
+            hover:text-white
+            transition
+            "
+          >
+            Моды
+          </a>
 
-<div className="flex items-center gap-3">
 
 
-<img
-src="/images/logo.png"
-className="
-w-9
-h-9
-rounded-xl
-object-cover
-"
-/>
+          <a
+            href="/news"
+            className="
+            hover:text-white
+            transition
+            "
+          >
+            Новости
+          </a>
 
 
+        </nav>
 
-<div>
 
 
-<h1
-className="
-font-bold
-text-sm
-"
->
-Mazepov | Connextion
-</h1>
 
+        <button
+          className="
+          px-5
+          py-2
+          rounded-xl
+          bg-white
+          text-black
+          text-sm
+          font-semibold
+          "
+        >
+          Войти
+        </button>
 
-<p
-className="
-text-[10px]
-text-zinc-500
-"
->
-AMAZING ONLINE
-</p>
 
+      </header>
 
-</div>
 
 
-</div>
 
 
+      {/* CONTENT */}
 
 
+      <section
+        className="
+        relative
+        z-20
+        pt-24
+        h-full
+        "
+      >
 
-<nav
-  className="
-  hidden
-  md:flex
-  gap-8
-  text-sm
-  text-zinc-400
-  "
->
 
-<a
-  href="/"
-  className="
-  hover:text-white
-  transition
-  "
->
-  Главная
-</a>
 
+        {/* LEFT IMAGE */}
 
-<a
-  href="/mods"
-  className="
-  hover:text-white
-  transition
-  "
->
-  Моды
-</a>
 
 
-<a
-  href="/news"
-  className="
-  hover:text-white
-  transition
-  "
->
-  Новости
-</a>
 
-</nav>
 
+        {/* RIGHT PHOTOS */}
 
 
 
 
-<button
-className="
-px-5
-py-2
-rounded-xl
-bg-white
-text-black
-text-sm
-font-semibold
-"
->
-Войти
-</button>
 
+        {/* DESCRIPTION */}
 
-</header>
 
 
+      </section>
 
 
 
 
 
 
+      {/* FOOTER */}
 
-{/* CONTENT */}
 
+      <footer
+        className="
+        fixed
+        bottom-0
+        left-0
+        w-full
+        h-10
+        flex
+        items-center
+        justify-center
+        gap-6
+        bg-black/40
+        backdrop-blur-md
+        border-t
+        border-white/10
+        z-50
+        text-xs
+        "
+      >
 
-<section
-className="
-relative
-z-20
-pt-24
-h-[calc(100vh-96px)]
-max-w-7xl
-mx-auto
-px-8
-"
->
 
+        <a
+          href="https://t.me/mazepovvv"
+          target="_blank"
+          className="
+          text-white
+          transition-all
+          duration-300
+          hover:text-transparent
+          hover:bg-gradient-to-r
+          hover:from-purple-400
+          hover:to-pink-400
+          hover:bg-clip-text
+          "
+        >
+          TG - MAZEPOV
+        </a>
 
-<div
-className="
-grid
-md:grid-cols-2
-gap-5
-h-[56vh]
-"
->
 
 
+        <a
+          href="https://t.me/ConnextionSqaude"
+          target="_blank"
+          className="
+          text-white
+          transition-all
+          duration-300
+          hover:text-transparent
+          hover:bg-gradient-to-r
+          hover:from-purple-400
+          hover:to-pink-400
+          hover:bg-clip-text
+          "
+        >
+          TG - CONNEXTION
+        </a>
 
 
 
-{/* LEFT IMAGE */}
+      </footer>
 
 
-<div
-className="
-relative
-overflow-hidden
-rounded-[32px]
-"
->
 
-
-<img
-src="/images/fon.png"
-className="
-w-full
-h-full
-object-cover
-[mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)]
-"
-/>
-
-
-</div>
-
-
-
-
-
-
-
-{/* RIGHT PHOTOS */}
-
-
-<div
-className="
-grid
-grid-cols-2
-gap-5
-"
->
-
-
-<Photo src="/images/gallery1.jpg"/>
-
-<Photo src="/images/gallery2.jpg"/>
-
-<Photo src="/images/gallery3.jpg"/>
-
-<Photo src="/images/gallery4.jpg"/>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-{/* DESCRIPTION */}
-
-
-<div
-className="
-mt-5
-h-[120px]
-rounded-3xl
-bg-[#111]
-border
-border-white/10
-px-8
-py-5
-"
->
-
-
-<h3
-className="
-text-2xl
-font-black
-"
->
-MAZEPOV CONNEXTION - MODS STORE
-</h3>
-
-
-
-<p
-className="
-mt-2
-text-sm
-text-zinc-400
-"
->
-На данном сайте вы можете приобрести различные товары,
-найти подходящие модификации и дополнения для своей сборки.
-Создавайте уникальный игровой опыт вместе с Mazepov | Connextion.
-</p>
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-{/* FOOTER */}
-
-<footer
-  className="
-  fixed
-  bottom-0
-  left-0
-  w-full
-  h-10
-  flex
-  items-center
-  justify-center
-  gap-6
-  bg-black/40
-  backdrop-blur-md
-  border-t
-  border-white/10
-  z-50
-  text-xs
-  "
->
-
-<a
-  href="https://t.me/mazepovvv"
-  target="_blank"
-  className="
-  text-white
-  transition-all
-  duration-300
-  hover:text-transparent
-  hover:bg-gradient-to-r
-  hover:from-purple-400
-  hover:to-pink-400
-  hover:bg-clip-text
-  "
->
-  TG - MAZEPOV
-</a>
-
-
-<a
-  href="https://t.me/ConnextionSqaude"
-  target="_blank"
-  className="
-  text-white
-  transition-all
-  duration-300
-  hover:text-transparent
-  hover:bg-gradient-to-r
-  hover:from-purple-400
-  hover:to-pink-400
-  hover:bg-clip-text
-  "
->
-  TG - CONNEXTION
-</a>
-
-</footer>
-
-</footer>
-
-
-</footer>
-
-
-
-</main> 
+    </main>
 
   );
 }
@@ -499,43 +275,32 @@ text-zinc-400
 
 
 
-
-
 function Photo({
-src
+  src
 }: {
-src:string
+  src:string
 }) {
 
+  return (
 
-return (
+    <div
+      className="
+      rounded-3xl
+      overflow-hidden
+      "
+    >
 
-<div
-className="
-rounded-3xl
-overflow-hidden
-bg-[#111]
-border
-border-white/10
-hover:border-white/30
-transition
-"
->
+      <img
+        src={src}
+        className="
+        w-full
+        h-full
+        object-cover
+        "
+      />
 
+    </div>
 
-<img
-src={src}
-className="
-w-full
-h-full
-object-cover
-"
-/>
-
-
-</div>
-
-);
-
+  );
 
 }
