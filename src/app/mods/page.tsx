@@ -1,437 +1,442 @@
+"use client";
+
+import { useState } from "react";
+import { mods, ModCategory } from "@/data/mods";
+
 export default function ModsPage() {
-  return (
-
-<main
-className="
-min-h-screen
-bg-[#050505]
-text-white
-relative
-overflow-hidden
-"
->
 
+    const [open, setOpen] = useState<string[]>([]);
+    const [selected, setSelected] = useState<ModCategory | null>(null);
 
-{/* ФОН */}
 
-<div
-className="
-absolute
-inset-0
-bg-[radial-gradient(circle_at_top,#351044,transparent_45%)]
-"
-/>
-
-
-<div
-className="
-absolute
-right-[-200px]
-top-[200px]
-w-[500px]
-h-[500px]
-bg-purple-600/20
-rounded-full
-blur-[180px]
-"
-/>
+    function toggleCategory(name:string){
 
-
-
-
-
-{/* HEADER */}
-
-<header
-className="
-fixed
-top-5
-left-1/2
--translate-x-1/2
-w-[92%]
-max-w-7xl
-h-16
-px-6
-rounded-2xl
-bg-black/70
-border
-border-white/10
-backdrop-blur-xl
-flex
-items-center
-justify-between
-z-50
-"
->
+        setOpen(prev =>
+            prev.includes(name)
+            ? prev.filter(x => x !== name)
+            : [...prev, name]
+        );
 
+    }
 
-<div className="flex items-center gap-3">
 
+    function CategoryItem({
+        item,
+        level = 0
+    }:{
+        item:ModCategory;
+        level?:number;
+    }){
 
-<img
-src="/images/logo.png"
-className="
-w-9
-h-9
-rounded-xl
-object-cover
-"
-/>
 
+        const hasChildren = item.children && item.children.length > 0;
 
-<div>
 
-<h1
-className="
-font-bold
-text-sm
-"
->
-Mazepov | Connextion
-</h1>
+        return (
 
+            <div>
 
-<p
-className="
-text-[10px]
-text-zinc-500
-"
->
-AMAZING ONLINE
-</p>
 
-</div>
+                <button
 
+                    onClick={()=>{
 
-</div>
+                        if(hasChildren){
+                            toggleCategory(item.name);
+                        }
 
+                        if(item.mods){
+                            setSelected(item);
+                        }
 
+                    }}
 
 
+                    className={`
+                    w-full
+                    flex
+                    items-center
+                    gap-2
+                    text-left
+                    px-3
+                    py-2
+                    rounded-xl
+                    text-sm
+                    transition
 
-<nav
-className="
-hidden
-md:flex
-gap-8
-text-sm
-text-zinc-400
-"
->
+                    ${
+                        selected?.name === item.name
+                        ?
+                        "bg-white text-black"
+                        :
+                        "text-gray-400 hover:bg-zinc-900 hover:text-white"
+                    }
+                    `}
 
-<a
-href="/"
-className="hover:text-white transition"
->
-Главная
-</a>
 
+                    style={{
+                        paddingLeft:`${level * 18 + 10}px`
+                    }}
 
-<a
-href="/mods"
-className="text-white"
->
-Моды
-</a>
+                >
 
 
-<a
-href="/news"
-className="hover:text-white transition"
->
-Новости
-</a>
+                    <span className="
+                    text-base
+                    ">
+                        {
+                            hasChildren
+                            ?
+                            "◻️"
+                            :
+                            "◼️"
+                        }
+                    </span>
 
 
-</nav>
+                    <span className={`
+                    ${hasChildren ? "font-bold text-white" : ""}
+                    `}>
+                        {item.name}
+                    </span>
 
 
+                </button>
 
 
 
+                {
+                    hasChildren &&
+                    open.includes(item.name) &&
 
-<button
-className="
-px-5
-py-2
-rounded-xl
-bg-white
-text-black
-text-sm
-font-semibold
-"
->
-Войти
-</button>
+                    <div>
 
+                    {
+                        item.children?.map(child=>(
 
-</header>
+                            <CategoryItem
+                            key={child.name}
+                            item={child}
+                            level={level+1}
+                            />
 
+                        ))
+                    }
 
+                    </div>
 
+                }
 
 
+            </div>
 
+        );
 
+    }
 
 
-{/* CONTENT */}
 
+    return (
 
-<section
-className="
-pt-32
-max-w-7xl
-mx-auto
-px-8
-"
->
+        <main className="
+        min-h-screen
+        bg-black
+        text-white
+        relative
+        overflow-hidden
+        ">
 
 
-<h2
-className="
-text-5xl
-font-black
-tracking-tight
-"
->
-Моды
-</h2>
+            {/* VIDEO BACKGROUND */}
 
+            <video
+            autoPlay
+            muted
+            loop
+            className="
+            fixed
+            inset-0
+            w-full
+            h-full
+            object-cover
+            -z-10
+            opacity-40
+            "
+            >
 
-<p
-className="
-mt-3
-text-zinc-400
-max-w-xl
-"
->
-Лучшие модификации для Amazing Online.
-Установи новые автомобили, модели и дополнения для своей игры.
-</p>
+                <source 
+                src="/videos/background.mp4"
+                type="video/mp4"
+                />
 
+            </video>
 
 
+            <div className="
+            fixed
+            inset-0
+            bg-black/60
+            -z-10
+            "></div>
 
 
 
+            {/* HEADER */}
 
 
-<div
-className="
-grid
-md:grid-cols-3
-gap-6
-mt-12
-"
->
+            <header className="
+            h-20
+            border-b
+            border-zinc-800
+            flex
+            items-center
+            justify-between
+            px-10
+            backdrop-blur
+            ">
 
 
-<ModCard
-image="/images/mod1.jpg"
-title="BMW M5 F90"
-text="Премиальный автомобильный мод"
-/>
+                <div className="
+                text-2xl
+                font-bold
+                ">
+                    MAZEPOV
+                </div>
 
 
 
-<ModCard
-image="/images/mod2.jpg"
-title="Mercedes AMG"
-text="Новая игровая модель"
-/>
+                <nav className="
+                flex
+                gap-8
+                text-gray-400
+                ">
 
 
+                    <a href="/">
+                        🏠 Главная
+                    </a>
 
-<ModCard
-image="/images/mod3.jpg"
-title="Mazepov Pack"
-text="Эксклюзивный набор"
-/>
 
+                    <a className="text-white">
+                        🛠 Моды
+                    </a>
 
 
-</div>
+                    <a href="/news">
+                        📰 Новости
+                    </a>
 
 
+                </nav>
 
-</section>
 
 
+                <button className="
+                bg-white
+                text-black
+                px-5
+                py-2
+                rounded-xl
+                font-semibold
+                ">
+                    Войти
+                </button>
 
 
+            </header>
 
 
 
-<footer
-className="
-fixed
-bottom-0
-left-0
-w-full
-h-10
-flex
-items-center
-justify-center
-gap-10
-bg-black/60
-backdrop-blur-md
-border-t
-border-white/5
-text-[11px]
-font-medium
-"
->
 
 
-<a
-href="https://t.me/mazepovvv"
-className="
-text-white
-hover:text-transparent
-hover:bg-gradient-to-r
-hover:from-purple-400
-hover:to-pink-400
-hover:bg-clip-text
-transition
-"
->
-TG - MAZEPOV
-</a>
+            <section className="
+            flex
+            ">
 
 
-<a
-href="https://t.me/ConnextionSqaude"
-className="
-text-white
-hover:text-transparent
-hover:bg-gradient-to-r
-hover:from-purple-400
-hover:to-pink-400
-hover:bg-clip-text
-transition
-"
->
-TG - CONNEXTION
-</a>
 
+                {/* MENU */}
 
-</footer>
 
+                <aside className="
+                w-72
+                border-r
+                border-zinc-800
+                min-h-[calc(100vh-80px)]
+                p-4
+                backdrop-blur
+                bg-black/30
+                ">
 
-</main>
 
-  );
-}
+                    <h2 className="
+                    font-bold
+                    text-lg
+                    mb-5
+                    ">
+                        📦 Категории
+                    </h2>
 
 
 
+                    <div className="space-y-1">
 
 
+                    {
+                        mods.map(item=>(
 
+                            <CategoryItem
+                            key={item.name}
+                            item={item}
+                            />
 
-function ModCard({
-image,
-title,
-text
-}:{
-image:string;
-title:string;
-text:string;
-}) {
+                        ))
+                    }
 
 
-return (
+                    </div>
 
-<div
-className="
-group
-bg-[#111]
-border
-border-white/10
-rounded-3xl
-overflow-hidden
-hover:border-purple-500/40
-transition
-"
->
 
+                </aside>
 
-<div
-className="
-h-52
-overflow-hidden
-"
->
 
 
-<img
-src={image}
-className="
-w-full
-h-full
-object-cover
-group-hover:scale-105
-transition
-"
-/>
 
 
-</div>
+                {/* CONTENT */}
 
 
 
-<div
-className="
-p-5
-"
->
+                <section className="
+                flex-1
+                p-10
+                ">
 
 
-<h3
-className="
-text-xl
-font-bold
-"
->
-{title}
-</h3>
 
+                {
 
-<p
-className="
-mt-2
-text-sm
-text-zinc-500
-"
->
-{text}
-</p>
+                    selected
 
+                    ?
 
+                    <>
 
-<button
-className="
-mt-5
-px-5
-py-2
-rounded-xl
-bg-white
-text-black
-text-sm
-font-semibold
-"
->
-Подробнее
-</button>
+                    <h1 className="
+                    text-3xl
+                    font-bold
+                    mb-6
+                    ">
+                        {selected.name}
+                    </h1>
 
 
-</div>
 
+                    <div className="
+                    grid
+                    grid-cols-3
+                    gap-6
+                    ">
 
-</div>
 
+                    {
+                        selected.mods?.map(mod=>(
 
-);
+
+                            <div
+                            key={mod.title}
+                            className="
+                            bg-zinc-900/80
+                            border
+                            border-zinc-800
+                            rounded-2xl
+                            overflow-hidden
+                            "
+                            >
+
+
+                                <img
+                                src={mod.image}
+                                className="
+                                h-44
+                                w-full
+                                object-cover
+                                "
+                                />
+
+
+                                <div className="p-5">
+
+
+                                    <h3 className="
+                                    font-bold
+                                    text-xl
+                                    ">
+                                        {mod.title}
+                                    </h3>
+
+
+                                    <p className="
+                                    text-gray-400
+                                    mt-2
+                                    ">
+                                        {mod.description}
+                                    </p>
+
+
+                                    <button className="
+                                    mt-5
+                                    bg-white
+                                    text-black
+                                    px-5
+                                    py-2
+                                    rounded-xl
+                                    ">
+                                        Подробнее
+                                    </button>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        ))
+                    }
+
+
+                    </div>
+
+
+                    </>
+
+
+                    :
+
+                    <div className="
+                    h-full
+                    flex
+                    items-center
+                    justify-center
+                    text-gray-500
+                    text-xl
+                    ">
+                        👈 Выберите категорию
+                    </div>
+
+
+                }
+
+
+                </section>
+
+
+            </section>
+
+
+        </main>
+
+    );
 
 }
