@@ -252,7 +252,8 @@ AMAZING ONLINE
 
 
 
-<button
+<a
+href="/login"
 className="
 px-5
 py-2
@@ -264,8 +265,7 @@ font-semibold
 "
 >
 Войти
-</button>
-
+</a>
 
 </header>
 
@@ -349,13 +349,13 @@ gap-5
 >
 
 
-<Photo src="/images/gallery1.jpg"/>
+<Photo src="/images/gallery1.png"/>
 
-<Photo src="/images/gallery2.jpg"/>
+<Photo src="/images/gallery2.png"/>
 
-<Photo src="/images/gallery3.jpg"/>
+<Photo src="/images/gallery3.png"/>
 
-<Photo src="/images/gallery4.jpg"/>
+<Photo src="/images/gallery4.png"/>
 
 
 </div>
