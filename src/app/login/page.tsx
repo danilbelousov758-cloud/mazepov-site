@@ -186,22 +186,23 @@ export default function LoginPage() {
 
           {open && (
 
-            <div
+<div
 
-            className="
-            absolute
-            z-50
-            mt-2
-            w-full
-            bg-zinc-900
-            border
-            border-white/10
-            rounded-xl
-            overflow-hidden
-            shadow-xl
-            "
+className="
+absolute
+z-50
+mt-2
+w-full
+max-h-72
+overflow-y-auto
+bg-zinc-900
+border
+border-white/10
+rounded-xl
+shadow-xl
+"
 
-            >
+>
 
 
             {servers.map((item)=>(
